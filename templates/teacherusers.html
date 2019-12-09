@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table border="1">
+<!--    {{ name }}-->
+
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Password</th>
+        <th>City</th>
+        <th>Post</th>
+    </tr>
+    </thead>
+
+    {% for user in users %}
+    <tr><td>{{ user["name"] }}</td><td>{{ user["password"] }}</td><td>{{ user["city"] }}</td><td>{{ user["position"] }}</td><td>
+          <form action="/updateUser2" method="post">
+                    <input name="target_user" value={{user["name"]}} type="hidden" />
+                    <input type="text" name="target_password" />
+                 <button>UPDATE Password</button>
+          </form>
+    </td> </tr>
+    {% endfor %}
+</table>
+
+
+</body>
+</html>
